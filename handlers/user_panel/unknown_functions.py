@@ -12,3 +12,4 @@ unknown_private_router.message.filter(ChatTypeFilter(['private']))
 @unknown_private_router.message()
 async def unknown_command(message: types.Message):
     await message.reply("Извините, я не понял вашего запроса. Пожалуйста, используйте доступные команды.")
+
