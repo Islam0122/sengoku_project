@@ -4,6 +4,7 @@ from aiogram import Bot, Dispatcher, types
 from aiogram.enums import ParseMode
 from dotenv import find_dotenv, load_dotenv
 
+from handlers.user_panel.ai_help import ai_help_private_router
 from handlers.user_panel.play_go_functions import play_go_functions_private_router
 from handlers.user_panel.start_functions import start_functions_private_router
 from handlers.user_panel.unknown_functions import unknown_private_router
@@ -20,6 +21,7 @@ dp = Dispatcher()
 
 dp.include_router(start_functions_private_router)
 dp.include_router(play_go_functions_private_router)
+dp.include_router(ai_help_private_router)
 dp.include_router(unknown_private_router)
 
 async def on_startup():

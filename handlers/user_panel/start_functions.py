@@ -41,6 +41,12 @@ async def start_main_menu(query: types.CallbackQuery,):
     await send_welcome_message(query.from_user, query.message)
 
 
+@start_functions_private_router.callback_query(F.data == "return")
+async def start_menu(query: types.CallbackQuery,):
+    """Обработчик callback_query для основного меню"""
+    await send_welcome_message(query.from_user, query.message)
+
+
 @start_functions_private_router.callback_query(F.data == 'about_us')
 async def about_us_command_callback_query(query: types.CallbackQuery) -> None:
     await query.message.delete()
