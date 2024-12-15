@@ -63,3 +63,19 @@ def get_cancel_keyboard():
     keyboard.add(
         InlineKeyboardButton(text="❌ Отменить", callback_data="cancel_ai_help"))
     return keyboard.adjust(1).as_markup()
+
+
+def start_game_functions_keyboard():
+    keyboard = InlineKeyboardBuilder()
+    keyboard.add(InlineKeyboardButton(text="🎮 Начать игру", callback_data="start_game"))
+    keyboard.add(InlineKeyboardButton(text="📜 Правила игры", callback_data="game_rules"))
+    keyboard.add(InlineKeyboardButton(text="🔙 Вернуться в главное меню", callback_data="start"))
+    return keyboard.adjust(2,1,).as_markup()
+
+
+def return_game_functions_keyboard():
+    keyboard = InlineKeyboardBuilder()
+    keyboard.add(InlineKeyboardButton(text="🎮 Начать игру", callback_data="start_game"))
+    keyboard.add(InlineKeyboardButton(text="🔙 Вернуться в главное меню", callback_data="start"))
+    return keyboard.adjust(1,).as_markup()
+
