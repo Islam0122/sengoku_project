@@ -41,7 +41,7 @@ def return_from_workshops_functions_keyboard():
 def return_from_branches_functions_keyboard():
     keyboard = InlineKeyboardBuilder()
     keyboard.add(InlineKeyboardButton(text="🔎 Посмотреть на 2ГИС 🌍",
-                                      url="https://2gis.kg/bishkek/search/sengoku.kg/firm/70000001060100301/74.620524%2C42.827672?m=74.612824%2C42.824463%2F12.04"))
+                                      url="https://2gis.kg/bishkek/firm/70000001031323179"))
     keyboard.add(InlineKeyboardButton(text="Вернуться в главное меню 🏠", callback_data="start"))
     return keyboard.adjust(1).as_markup()
 
