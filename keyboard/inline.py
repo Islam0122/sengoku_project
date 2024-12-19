@@ -67,15 +67,17 @@ def get_cancel_keyboard():
 
 def start_game_functions_keyboard():
     keyboard = InlineKeyboardBuilder()
-    keyboard.add(InlineKeyboardButton(text="🎮 Начать игру", callback_data="start_game"))
+    keyboard.add(InlineKeyboardButton(text="🎮 Начать игру", url="https://t.me/BadukTogetherBot"))
+    keyboard.add(InlineKeyboardButton(text="📲 Скачать в Play Market", url="https://play.google.com/store/apps/details?id=com.popoko.weiqi&pcampaignid=web_share"))
+    keyboard.add(InlineKeyboardButton(text="🍏 Скачать в App Store", url="https://apps.apple.com/us/app/go/id6444382651"))
     keyboard.add(InlineKeyboardButton(text="📜 Правила игры", callback_data="game_rules"))
     keyboard.add(InlineKeyboardButton(text="🔙 Вернуться в главное меню", callback_data="start"))
-    return keyboard.adjust(2,1,).as_markup()
+    return keyboard.adjust(1,2,1,).as_markup()
 
 
 def return_game_functions_keyboard():
     keyboard = InlineKeyboardBuilder()
-    keyboard.add(InlineKeyboardButton(text="🎮 Начать игру", callback_data="start_game"))
+    keyboard.add(InlineKeyboardButton(text="🎮 Игра Го", callback_data="play_go"))  # Мини-игра
     keyboard.add(InlineKeyboardButton(text="🔙 Вернуться в главное меню", callback_data="start"))
-    return keyboard.adjust(1,).as_markup()
+    return keyboard.adjust(2,1,1,).as_markup()
 
