@@ -105,20 +105,18 @@ async def register_for_workshop_callback_query(query: types.CallbackQuery, bot: 
         reply_markup=keyboard_markup
     )
     await query.answer(text=text)
-    for manager_id in bot.my_admins_list:  # Убедитесь, что у вас есть список менеджеров
-        user_info = f"📝 {query.from_user.first_name}"
+    user_info = f"📝 {query.from_user.first_name}"
 
-        # Добавляем фамилию, если она есть
-        if query.from_user.last_name:
-            user_info += f" {query.from_user.last_name}"
+    # Добавляем фамилию, если она есть
+    if query.from_user.last_name:
+        user_info += f" {query.from_user.last_name}"
 
-        # Добавляем username, если он есть
-        if query.from_user.username:
-            user_info += f" (@{query.from_user.username})"
+    # Добавляем username, если он есть
+    if query.from_user.username:
+        user_info += f" (@{query.from_user.username})"
 
-        # Отправляем сообщение менеджерам
-        await bot.send_message(
-            manager_id,text=
+    await bot.send_message(
+            chat_id=-4774106135,text=
             f"💼 <b>Новая заявка на мастер-класс</b>:\n\n"
             f"👤 <b>Информация о пользователе:</b>\n"
             f"📛 <b>Имя:</b> {user_info}\n"
