@@ -40,10 +40,13 @@ def clean_text(text: str):
 async def check_restricted_words(message: types.Message):
     # Очистка текста от пунктуации и приведение к нижнему регистру
     cleaned_text = clean_text(message.text)
-    message_words = set(cleaned_text.split())
+    message_words = set(cleaned_text.lower().split())  # Приведение всех слов к нижнему регистру
+
+    # Преобразование запрещённых слов в нижний регистр
+    restricted_words_lower = {word.lower() for word in restricted_words}
 
     # Проверка на наличие запрещённых слов
-    if restricted_words.intersection(message_words):
+    if restricted_words_lower.intersection(message_words):
         await message.delete()  # Удаление сообщения
         await message.answer(
             f"⚠️ {message.from_user.first_name}, использование запрещённых слов недопустимо."
